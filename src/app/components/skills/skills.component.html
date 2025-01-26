@@ -1,0 +1,30 @@
+<section class="py-20 px-4 bg-gray-50 dark:bg-gray-800 relative overflow-hidden" data-aos="fade-up">
+  <div class="tech-background"></div>
+  
+  <div class="max-w-6xl mx-auto relative z-10">
+    <h2 class="text-3xl font-bold mb-12 text-center">Skills</h2>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      @for (skill of skills; track skill.name) {
+        <div 
+          class="skill-card hover-scale bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg text-center"
+          [class.paused]="isPaused"
+          (mouseenter)="isPaused = true"
+          (mouseleave)="isPaused = false"
+          data-aos="flip-left"
+        >
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary bg-opacity-10 rounded-full">
+            <i [class]="skill.icon + ' text-2xl text-primary'"></i>
+          </div>
+          <h3 class="font-semibold mb-2">{{ skill.name }}</h3>
+          <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+            <div 
+              class="bg-primary rounded-full h-2 transition-all duration-1000" 
+              [style.width.%]="skill.level">
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

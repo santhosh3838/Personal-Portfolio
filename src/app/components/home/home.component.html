@@ -1,0 +1,37 @@
+<div class="relative h-screen">
+  <div class="absolute inset-0 overflow-hidden">
+    @for (image of images; track $index) {
+      <img 
+        [src]="image" 
+        [class.opacity-100]="currentImage === $index"
+        [class.opacity-0]="currentImage !== $index"
+        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+        alt="Background"
+      >
+    }
+  </div>
+  
+  <div class="absolute inset-0 bg-black bg-opacity-50">
+    <div class="flex items-center justify-center h-full">
+      <div class="text-center text-white slide-in">
+        <div class="mb-8 transform hover:scale-105 transition-transform duration-300">
+          <img 
+            src="https://source.unsplash.com/random/150x150?portrait" 
+            alt="Profile" 
+            class="w-32 h-32 rounded-full mx-auto border-4 border-primary shadow-lg transform hover:rotate-6 transition-transform duration-300"
+          >
+        </div>
+        <h1 class="text-5xl font-bold mb-4 [text-shadow:_2px_2px_4px_rgb(0_0_0_/_50%)]">
+          Hello, I'm <span class="text-primary">Your Name</span>
+        </h1>
+        <p class="text-xl mb-8 [text-shadow:_1px_1px_2px_rgb(0_0_0_/_50%)]">Full Stack Developer</p>
+        <a 
+          href="#contact" 
+          class="bg-primary hover:bg-secondary px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 inline-block"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
